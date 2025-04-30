@@ -1,9 +1,10 @@
 const path = require('path');
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => ({
   entry: {
-    index: './index.js',
+    main: './main.js',
+    common: './common.js',
   },
   mode: env.mode || 'development',
   watch: env.watch || false,
@@ -11,13 +12,13 @@ module.exports = (env) => ({
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
-  // plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
         {
             test: /\.(sa|sc|c)ss$/,
             use: [
-                // MiniCssExtractPlugin.loader,
+                MiniCssExtractPlugin.loader,
                 "css-loader",
                 "sass-loader"
             ],

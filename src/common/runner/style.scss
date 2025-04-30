@@ -1,0 +1,33 @@
+.runner {
+    --duration-desk: 18s;
+    --duration-tablet: 28s;
+    --duration-mobile: 28s;
+
+    &__wrapper {
+        animation: runner 18s linear infinite paused;
+
+        @media screen and (max-width: 991px) {
+            animation-duration: 28s;
+        }
+    }
+
+    &--visible {
+        .runner__wrapper {
+            animation-play-state: running;
+        }
+    }
+
+    &--reset {
+        .runner__wrapper {
+            animation: none;
+        }
+    }
+}
+
+@keyframes runner {
+    from {
+        transform: translateX(0);
+    } to {
+        transform: translateX(-100%);
+    }
+}

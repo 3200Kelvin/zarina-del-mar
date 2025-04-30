@@ -1,0 +1,27 @@
+.burger-btn {
+    &__line {
+        transition: transform 0.4s ease;
+    }
+
+    &__close {
+        .burger-btn__line {
+            transform: scaleX(0);
+        }
+    }
+
+    &.opened {
+        .burger-btn {
+            &__open {
+                .burger-btn__line {
+                    transform: scaleX(0);
+                }
+            }
+
+            &__close {
+                .burger-btn__line {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}

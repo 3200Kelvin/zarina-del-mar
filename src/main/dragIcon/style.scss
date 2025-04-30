@@ -1,0 +1,19 @@
+.oscillator {
+    animation: oscillate 1s linear infinite paused;
+
+    &--active {
+        animation-play-state: running;
+    }
+}
+
+@keyframes oscillate {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

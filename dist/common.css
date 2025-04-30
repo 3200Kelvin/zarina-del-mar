@@ -1,0 +1,1 @@
+.burger-btn__line{transition:transform .4s ease}.burger-btn__close .burger-btn__line{transform:scaleX(0)}.burger-btn.opened .burger-btn__open .burger-btn__line{transform:scaleX(0)}.burger-btn.opened .burger-btn__close .burger-btn__line{transform:scaleX(1)}

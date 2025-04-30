@@ -1,0 +1,5 @@
+.methodology__card {
+    &:not(:last-child) {
+        border-right: none;
+    }
+}
