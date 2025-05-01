@@ -1,14 +1,8 @@
-import { gsap } from "gsap";
 import { useScreenTrigger } from "./src/animationTriggers/screen";
 import { useMenu } from "./src/common/menu/script";
 
-if (!window.gsap) {
-    window.gsap = gsap;
-    gsap.defaults({
-        duration: 0,
-        ease: 'power2.inOut',
-    });
-}
+import './src/common/buttons/style.scss';
+import './src/common/photos/align.scss';
 
 useScreenTrigger();
 useMenu();

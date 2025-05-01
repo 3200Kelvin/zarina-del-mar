@@ -1,0 +1,36 @@
+@media (hover: hover) {
+    .button {
+        --hover-color: var(--bg-light);
+        --hover-bg: var(--red);
+        --easing: 0.4s ease;
+        
+        transition: color var(--easing);
+    
+        &[data-wf--button--variant="emphasized"] {
+            --hover-color: var(--red);
+            --hover-bg: var(--bg-light);
+        }
+    
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -5%;
+            top: 0;
+            width: 110%;
+            height: 100%;
+            background-color: var(--hover-bg);
+            transform-origin: center bottom;
+            transform: scaleY(0);
+            transition: transform var(--easing);
+        }
+    
+        &:hover {
+            &::before {
+                transform: scaleY(1);
+            }
+    
+            color: var(--hover-color);
+        }
+    }
+}

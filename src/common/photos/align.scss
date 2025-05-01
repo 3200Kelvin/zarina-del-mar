@@ -1,0 +1,13 @@
+[data-vertical-align] {
+    --pos-x: 50%;
+    --pos-y: 50%;
+
+    object-position: var(--pos-x) var(--pos-y);
+
+    &[data-vertical-align="top"] {
+        --pos-y: 10%;
+    }
+    &[data-vertical-align="bottom"] {
+        --pos-y: 90%;
+    }
+}
