@@ -1,12 +1,19 @@
 import './style.scss';
 
 export const useRunner = (block, wrapperSelector, entrySelector) => {
+    const defaultDuration = '20s';
     const wrapper = block.querySelector(wrapperSelector);
     const entry = wrapper.querySelector(entrySelector);
     
     block.classList.add('runner');
     wrapper.classList.add('runner__wrapper');
     entry.classList.add('runner__entry');
+
+    const { durationDesk = defaultDuration, durationTablet = durationDesk, durationMobile = durationTablet } = block.dataset;
+
+    block.style.setProperty('--duration-desk', durationDesk);
+    block.style.setProperty('--duration-tablet', durationTablet);
+    block.style.setProperty('--duration-mobile', durationMobile);
 
     let wrapperClone;
     let currentNumber = 1;

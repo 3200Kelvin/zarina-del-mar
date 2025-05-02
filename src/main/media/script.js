@@ -11,4 +11,5 @@ export const useMediaTicker = () => {
     block.animate = () => toggleRunner(true);
     block.reverse = () => toggleRunner(false);
     block.setAttribute('data-animation-trigger', 'screen');
+    block.setAttribute('data-trigger-margin', '0');
 };

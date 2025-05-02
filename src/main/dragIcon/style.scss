@@ -1,5 +1,5 @@
 .oscillator {
-    animation: oscillate 1s linear infinite paused;
+    animation: oscillate 2.5s ease infinite paused;
 
     &--active {
         animation-play-state: running;
@@ -10,10 +10,16 @@
     0% {
         transform: translateX(0%);
     }
-    50% {
-        transform: translateX(-25%);
+    10% {
+        transform: translateX(-15%);
     }
-    100% {
+    20% {
+        transform: translateX(0%);
+    }
+    30% {
+        transform: translateX(-15%);
+    }
+    40% {
         transform: translateX(0%);
     }
 }

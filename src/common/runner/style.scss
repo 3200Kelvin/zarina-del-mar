@@ -1,14 +1,20 @@
 .runner {
-    --duration-desk: 18s;
-    --duration-tablet: 28s;
-    --duration-mobile: 28s;
+    --duration-desk: 20s;
+    --duration-tablet: var(--duration-desk);
+    --duration-mobile: var(--duration-tablet);
+
+    --duration: var(--duration-desk);
+
+    @media screen and (max-width: 991px) {
+        --duration: var(var(--duration-tablet));
+    }
+
+    @media screen and (max-width: 767px) {
+        --duration: var(var(--duration-mobile));
+    }
 
     &__wrapper {
-        animation: runner 18s linear infinite paused;
-
-        @media screen and (max-width: 991px) {
-            animation-duration: 28s;
-        }
+        animation: runner var(--duration) linear infinite paused;
     }
 
     &--visible {
