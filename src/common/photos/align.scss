@@ -5,9 +5,9 @@
     object-position: var(--pos-x) var(--pos-y);
 
     &[data-vertical-align="top"] {
-        --pos-y: 10%;
+        --pos-y: 20%;
     }
     &[data-vertical-align="bottom"] {
-        --pos-y: 90%;
+        --pos-y: 80%;
     }
 }
