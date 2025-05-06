@@ -1,5 +1,6 @@
+.header__nav__entry--active{color:var(--red)}.header__nav__entry--active::after{content:"";display:block;position:absolute;left:0;top:calc(100% - 1px);width:100%;height:2px;background-color:var(--red)}
 .burger-btn__line{transition:transform .4s ease}.burger-btn__close .burger-btn__line{transform:scaleX(0)}.burger-btn.opened .burger-btn__open .burger-btn__line{transform:scaleX(0)}.burger-btn.opened .burger-btn__close .burger-btn__line{transform:scaleX(1)}
+[data-popup-trigger]{cursor:pointer}
 @media(hover: hover){.button{--hover-color: var(--bg-light);--hover-bg: var(--red);--easing: 0.4s ease;transition:color var(--easing)}.button[data-wf--button--variant=emphasized]{--hover-color: var(--red);--hover-bg: var(--bg-light)}.button::before{content:"";display:block;position:absolute;left:-5%;top:-5%;width:110%;height:110%;background-color:var(--hover-bg);transform-origin:center bottom;transform:scaleY(0);transition:transform var(--easing)}.button:hover{color:var(--hover-color)}.button:hover::before{transform:scaleY(1)}}
 [data-vertical-align]{--pos-x: 50%;--pos-y: 50%;object-position:var(--pos-x) var(--pos-y)}[data-vertical-align][data-vertical-align=top]{--pos-y: 20%}[data-vertical-align][data-vertical-align=bottom]{--pos-y: 80%}
 .w-embed::before,.w-embed::after{display:none !important}
-[data-popup-trigger]{cursor:pointer}
