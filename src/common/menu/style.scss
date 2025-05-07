@@ -1,6 +1,12 @@
 .burger-btn {
-    &.transition &__line {
-        transition: transform 0.4s ease;
+    &.transition {
+        .burger-btn__line {
+            transition: transform 0.4s ease;
+        }
+
+        .burger-btn__close {
+            opacity: 1;
+        }
     }
 
     &__close {
