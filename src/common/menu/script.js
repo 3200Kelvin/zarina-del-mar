@@ -10,6 +10,10 @@ export const useMenu = () => {
 
     let isOpened = false;
 
+    setTimeout(() => {
+        trigger.classList.add('transition');
+    }, 10);
+
     trigger.addEventListener('click', () => {
         if (isOpened) {
             closeMenu();

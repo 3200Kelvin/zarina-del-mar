@@ -1,5 +1,5 @@
 .burger-btn {
-    &__line {
+    &.transition &__line {
         transition: transform 0.4s ease;
     }
 
