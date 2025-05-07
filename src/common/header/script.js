@@ -14,5 +14,7 @@ export const useHeader = () => {
     }
 
     const entry = currentLink.closest('.header__nav__entry');
-    entry.classList.add('header__nav__entry--active');
+    if (entry) {
+        entry.classList.add('header__nav__entry--active');
+    }
 };
