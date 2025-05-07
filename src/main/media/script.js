@@ -1,12 +1,12 @@
 import { useRunner } from "../../common/runner/script";
 
 export const useMediaTicker = () => {
-    const block = document.querySelector('.about__media');
+    const block = document.querySelector('.media-runner');
     if (!block) {
         return;
     }
 
-    const { toggleRunner } = useRunner(block, '.about__media__wrapper', '.about__media__list');
+    const { toggleRunner } = useRunner(block, '.media-runner__wrapper', '.media-runner__list');
 
     block.animate = () => toggleRunner(true);
     block.reverse = () => toggleRunner(false);
