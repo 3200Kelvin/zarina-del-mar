@@ -1,46 +1,95 @@
 import './style.scss';
 
 export const useRunner = (block, wrapperSelector, entrySelector) => {
-    const defaultDuration = '20s';
+    const defaultDuration = 20;
     const wrapper = block.querySelector(wrapperSelector);
     const entry = wrapper.querySelector(entrySelector);
+
+    const {
+        durationDesk = defaultDuration,
+        durationTablet = durationDesk,
+        durationMobile = durationTablet,
+        direction = 'left',
+    } = block.dataset;
     
     block.classList.add('runner');
+
+    if (direction === 'right') {
+        block.classList.add('runner--right');
+    } else if (direction === 'top') {
+        block.classList.add('runner--top');
+    } else if (direction === 'bottom') {
+        block.classList.add('runner--bottom');
+    }
+
     wrapper.classList.add('runner__wrapper');
     entry.classList.add('runner__entry');
 
-    const { durationDesk = defaultDuration, durationTablet = durationDesk, durationMobile = durationTablet } = block.dataset;
-
-    block.style.setProperty('--duration-desk', durationDesk);
-    block.style.setProperty('--duration-tablet', durationTablet);
-    block.style.setProperty('--duration-mobile', durationMobile);
-
+    let isInitialized = false;
+    let speedCoeff = 1;
     let wrapperClone;
     let currentNumber = 1;
-    let debounce;
+    let entryResizeDebounce;
+    let wrapperResizeDebounce;
 
-    const resizeObserver = new ResizeObserver(([entry]) => {
-        clearTimeout(debounce);
-        debounce = setTimeout(() => onResize(entry), 250);
+    const entryResizeObserver = new ResizeObserver(([entry]) => {
+        clearTimeout(entryResizeDebounce);
+        entryResizeDebounce = setTimeout(() => onEntryResize(entry), 250);
     });
-    resizeObserver.observe(entry);
+    entryResizeObserver.observe(entry);
+
+    const wrapperResizeObserver = new ResizeObserver(([entry]) => {
+        clearTimeout(wrapperResizeDebounce);
+        wrapperResizeDebounce = setTimeout(() => onWrapperResize(entry), 250);
+    });
+    wrapperResizeObserver.observe(wrapper);
 
     return { toggleRunner, cleanup };
 
     function cleanup () {
-        resizeObserver.disconnect();
+        entryResizeObserver.disconnect();
+        wrapperResizeObserver.disconnect();
     }
 
-    function onResize(entry) {
-        const targetNumber = getTargetAmount(entry.contentRect.width);
-        if (currentNumber !== targetNumber) {
+    function onEntryResize(entry) {
+        const targetNumber = getTargetAmount(entry);
+        if (currentNumber !== targetNumber || !isInitialized) {
             changeAmountOfEntries(targetNumber);
             currentNumber = targetNumber;
+            isInitialized = true;
         }
     }
 
-    function getTargetAmount(entryWidth) {
-        return Math.ceil(window.innerWidth / entryWidth);
+    function onWrapperResize(entry) {
+        const newSpeedCoeff = getSpeedCoeff(entry);
+        if (speedCoeff !== newSpeedCoeff) {
+            setSpeed(newSpeedCoeff);
+            speedCoeff = newSpeedCoeff;
+        }
+    }
+
+    function isHorizontal() {
+        return direction === 'left' || direction === 'right';
+    }
+
+    function getTargetAmount(entry) {
+        if (isHorizontal()) {
+            return Math.ceil(block.offsetWidth / entry.contentRect.width);
+        }
+        return Math.ceil(block.offsetHeight / entry.contentRect.height);
+    }
+
+    function getSpeedCoeff(entry) {
+        if (isHorizontal()) {
+            return entry.contentRect.width / block.offsetWidth;
+        }
+        return entry.contentRect.height / block.offsetHeight;
+    }
+
+    function setSpeed(newSpeedCoeff) {
+        block.style.setProperty('--duration-desk', `${durationDesk * newSpeedCoeff}s`);
+        block.style.setProperty('--duration-tablet', `${durationTablet * newSpeedCoeff}s`);
+        block.style.setProperty('--duration-mobile', `${durationMobile * newSpeedCoeff}s`);
     }
 
     function changeAmountOfEntries(targetNumber) {

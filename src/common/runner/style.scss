@@ -14,7 +14,22 @@
     }
 
     &__wrapper {
-        animation: runner var(--duration) linear infinite paused;
+        animation: runner-left var(--duration) linear infinite paused;
+    }
+    &--right {
+        .runner__wrapper {
+            animation-name: runner-right;
+        }
+    }
+    &--top {
+        .runner__wrapper {
+            animation-name: runner-top;
+        }
+    }
+    &--bottom {
+        .runner__wrapper {
+            animation-name: runner-bottom;
+        }
     }
 
     &--visible {
@@ -30,10 +45,31 @@
     }
 }
 
-@keyframes runner {
+@keyframes runner-left {
     from {
-        transform: translateX(0);
+        transform: translateX(0%);
     } to {
         transform: translateX(-100%);
+    }
+}
+@keyframes runner-right {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0%);
+    }
+}
+@keyframes runner-top {
+    from {
+        transform: translateY(0%);
+    } to {
+        transform: translateY(-100%);
+    }
+}
+@keyframes runner-bottom {
+    from {
+        transform: translateY(-100%);
+    } to {
+        transform: translateY(0%);
     }
 }
