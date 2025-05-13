@@ -1,0 +1,15 @@
+.short-list__item__link {
+    opacity: 0.3;
+
+    .short-list__arrow {
+        opacity: 0;
+    }
+
+    &.active {
+        opacity: 1;
+
+        .short-list__arrow {
+            opacity: 1;
+        }
+    }
+}
