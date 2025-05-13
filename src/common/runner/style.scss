@@ -6,11 +6,11 @@
     --duration: var(--duration-desk);
 
     @media screen and (max-width: 991px) {
-        --duration: var(var(--duration-tablet));
+        --duration: var(--duration-tablet);
     }
 
     @media screen and (max-width: 767px) {
-        --duration: var(var(--duration-mobile));
+        --duration: var(--duration-mobile);
     }
 
     &__wrapper {

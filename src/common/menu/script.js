@@ -3,6 +3,7 @@ import './style.scss';
 export const useMenu = () => {
     const menu = document.querySelector('.menu');
     const trigger = document.querySelector('.burger-btn');
+    const links = menu.querySelectorAll('a');
 
     if (!menu || !trigger) {
         return;
@@ -19,6 +20,12 @@ export const useMenu = () => {
             closeMenu();
         } else {
             openMenu();
+        }
+    });
+
+    links.forEach((link) => {
+        if (!link.getAttribute('href')?.includes('/')) {
+            link.addEventListener('click', closeMenu);
         }
     });
 
