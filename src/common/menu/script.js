@@ -24,7 +24,8 @@ export const useMenu = () => {
     });
 
     links.forEach((link) => {
-        if (!link.getAttribute('href')?.includes('/')) {
+        const isSamaPage = link.getAttribute('href').split('#')[0] === location.href.split('#')[0];
+        if (isSamaPage) {
             link.addEventListener('click', closeMenu);
         }
     });
