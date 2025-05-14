@@ -1,7 +1,164 @@
-.header__nav__entry--active{color:var(--red)}.header__nav__entry--active::after{content:"";display:block;position:absolute;left:0;top:calc(100% - 1px);width:100%;height:2px;background-color:var(--red)}
-.burger-btn.transition .burger-btn__line{transition:transform .4s ease}.burger-btn.transition .burger-btn__close{opacity:1}.burger-btn__close .burger-btn__line{transform:scaleX(0)}.burger-btn.opened .burger-btn__open .burger-btn__line{transform:scaleX(0)}.burger-btn.opened .burger-btn__close .burger-btn__line{transform:scaleX(1)}
-[data-popup-trigger]{cursor:pointer}
-.runner{--duration-desk: 20s;--duration-tablet: var(--duration-desk);--duration-mobile: var(--duration-tablet);--duration: var(--duration-desk)}@media screen and (max-width: 991px){.runner{--duration: var(--duration-tablet)}}@media screen and (max-width: 767px){.runner{--duration: var(--duration-mobile)}}.runner__wrapper{animation:runner-left var(--duration) linear infinite paused}.runner--right .runner__wrapper{animation-name:runner-right}.runner--top .runner__wrapper{animation-name:runner-top}.runner--bottom .runner__wrapper{animation-name:runner-bottom}.runner--visible .runner__wrapper{animation-play-state:running}.runner--reset .runner__wrapper{animation:none}@keyframes runner-left{from{transform:translateX(0%)}to{transform:translateX(-100%)}}@keyframes runner-right{from{transform:translateX(-100%)}to{transform:translateX(0%)}}@keyframes runner-top{from{transform:translateY(0%)}to{transform:translateY(-100%)}}@keyframes runner-bottom{from{transform:translateY(-100%)}to{transform:translateY(0%)}}
-@media(hover: hover){.button{--hover-color: var(--bg-light);--hover-bg: var(--red);--easing: 0.4s ease;transition:color var(--easing)}.button[data-wf--button--variant=emphasized]{--hover-color: var(--red);--hover-bg: var(--bg-light)}.button::before{content:"";display:block;position:absolute;left:-5%;top:-5%;width:110%;height:110%;background-color:var(--hover-bg);transform-origin:center bottom;transform:scaleY(0);transition:transform var(--easing)}.button:hover{color:var(--hover-color)}.button:hover::before{transform:scaleY(1)}}
-[data-vertical-align]{--pos-x: 50%;--pos-y: 50%;object-position:var(--pos-x) var(--pos-y)}[data-vertical-align][data-vertical-align=top]{--pos-y: 20%}[data-vertical-align][data-vertical-align=bottom]{--pos-y: 80%}
-.w-embed::before,.w-embed::after{display:none !important}
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/header/style.scss ***!
+  \***********************************************************************************************************************/
+.header__nav__entry--active {
+  color: var(--red);
+}
+.header__nav__entry--active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: calc(100% - 1px);
+  width: 100%;
+  height: 2px;
+  background-color: var(--red);
+}
+/*!*********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/menu/style.scss ***!
+  \*********************************************************************************************************************/
+.burger-btn.transition .burger-btn__line {
+  transition: transform 0.4s ease;
+}
+.burger-btn.transition .burger-btn__close {
+  opacity: 1;
+}
+.burger-btn__close .burger-btn__line {
+  transform: scaleX(0);
+}
+.burger-btn.opened .burger-btn__open .burger-btn__line {
+  transform: scaleX(0);
+}
+.burger-btn.opened .burger-btn__close .burger-btn__line {
+  transform: scaleX(1);
+}
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/popups/style.scss ***!
+  \***********************************************************************************************************************/
+[data-popup-trigger] {
+  cursor: pointer;
+}
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/runner/style.scss ***!
+  \***********************************************************************************************************************/
+.runner {
+  --duration-desk: 20s;
+  --duration-tablet: var(--duration-desk);
+  --duration-mobile: var(--duration-tablet);
+  --duration: var(--duration-desk);
+}
+@media screen and (max-width: 991px) {
+  .runner {
+    --duration: var(--duration-tablet);
+  }
+}
+@media screen and (max-width: 767px) {
+  .runner {
+    --duration: var(--duration-mobile);
+  }
+}
+.runner__wrapper {
+  animation: runner-left var(--duration) linear infinite paused;
+}
+.runner--right .runner__wrapper {
+  animation-name: runner-right;
+}
+.runner--top .runner__wrapper {
+  animation-name: runner-top;
+}
+.runner--bottom .runner__wrapper {
+  animation-name: runner-bottom;
+}
+.runner--visible .runner__wrapper {
+  animation-play-state: running;
+}
+.runner--reset .runner__wrapper {
+  animation: none;
+}
+
+@keyframes runner-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes runner-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes runner-top {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes runner-bottom {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+/*!************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/buttons/style.scss ***!
+  \************************************************************************************************************************/
+@media (hover: hover) {
+  .button {
+    --hover-color: var(--bg-light);
+    --hover-bg: var(--red);
+    --easing: 0.4s ease;
+    transition: color var(--easing);
+  }
+  .button[data-wf--button--variant=emphasized] {
+    --hover-color: var(--red);
+    --hover-bg: var(--bg-light);
+  }
+  .button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 110%;
+    background-color: var(--hover-bg);
+    transform-origin: center bottom;
+    transform: scaleY(0);
+    transition: transform var(--easing);
+  }
+  .button:hover {
+    color: var(--hover-color);
+  }
+  .button:hover::before {
+    transform: scaleY(1);
+  }
+}
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/photos/align.scss ***!
+  \***********************************************************************************************************************/
+[data-vertical-align] {
+  --pos-x: 50%;
+  --pos-y: 50%;
+  object-position: var(--pos-x) var(--pos-y);
+}
+[data-vertical-align][data-vertical-align=top] {
+  --pos-y: 20%;
+}
+[data-vertical-align][data-vertical-align=bottom] {
+  --pos-y: 80%;
+}
+/*!*****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/common/styles.scss ***!
+  \*****************************************************************************************************************/
+.w-embed::before, .w-embed::after {
+  display: none !important;
+}

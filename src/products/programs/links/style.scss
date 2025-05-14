@@ -1,12 +1,17 @@
 .short-list__item__link {
-    opacity: 0.3;
+    .text--uppercase {
+        transition: opacity 0.2s ease;
+        opacity: 0.3;
+    }
 
     .short-list__arrow {
         opacity: 0;
     }
 
-    &.active {
-        opacity: 1;
+    &.w--current {
+        .text--uppercase {
+            opacity: 1;
+        }
 
         .short-list__arrow {
             opacity: 1;
