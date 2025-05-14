@@ -8,7 +8,7 @@ export const useScreenTrigger = () => {
     const observers = {};
 
     elements.forEach((element) => {
-        const observer = getObserver(element.dataset.triggerMargin);
+        const observer = getObserver(element.dataset.triggerMargin || 0);
         observer.observe(element);
     });
 
