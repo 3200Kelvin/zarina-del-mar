@@ -1,34 +1,24 @@
 @media (hover: hover) {
     .button {
+        --bg: transparent;
         --hover-color: var(--bg-light);
         --hover-bg: var(--red);
         --easing: 0.4s ease;
         
-        transition: color var(--easing);
+        transition: color var(--easing), background-position var(--easing);
     
         &[data-wf--button--variant="emphasized"] {
+            --bg: var(--red);
             --hover-color: var(--red);
             --hover-bg: var(--bg-light);
         }
-    
-        &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            left: -5%;
-            top: -5%;
-            width: 110%;
-            height: 110%;
-            background-color: var(--hover-bg);
-            transform-origin: center bottom;
-            transform: scaleY(0);
-            transition: transform var(--easing);
-        }
+
+        background: linear-gradient(to bottom, var(--bg) 0%, var(--bg) 50%, var(--hover-bg) 50%, var(--hover-bg) 100%);
+        background-size: 100% 200%;
+        background-position: 0 0%;
     
         &:hover {
-            &::before {
-                transform: scaleY(1);
-            }
+            background-position: 0 100%;
     
             color: var(--hover-color);
         }
