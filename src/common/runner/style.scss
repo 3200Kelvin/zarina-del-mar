@@ -48,29 +48,29 @@
 
 @keyframes runner-left {
     from {
-        transform: translateX(0%);
+        transform: translate3d(0%, 0, 0);
     } to {
-        transform: translateX(-100%);
+        transform: translate3d(-100%, 0, 0);
     }
 }
 @keyframes runner-right {
     from {
-        transform: translateX(-100%);
+        transform: translate3d(-100%, 0, 0);
     } to {
-        transform: translateX(0%);
+        transform: translate3d(0%, 0, 0);
     }
 }
 @keyframes runner-top {
     from {
-        transform: translateY(0%);
+        transform: translate3d(0, 0%, 0);
     } to {
-        transform: translateY(-100%);
+        transform: translate3d(0, -100%, 0);
     }
 }
 @keyframes runner-bottom {
     from {
-        transform: translateY(-100%);
+        transform: translate3d(0, -100%, 0);
     } to {
-        transform: translateY(0%);
+        transform: translate3d(0, 0%, 0);
     }
 }
