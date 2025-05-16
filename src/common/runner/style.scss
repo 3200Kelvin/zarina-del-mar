@@ -36,6 +36,10 @@
         .runner__wrapper {
             will-change: transform;
             animation-play-state: running;
+
+            img {
+                will-change: transform;
+            }
         }
     }
 
